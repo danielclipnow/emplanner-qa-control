@@ -2,5 +2,4 @@
 /workspace.xml
 .gradle/
 .idea/
-build.gradle
-settings.gradle
+logs/

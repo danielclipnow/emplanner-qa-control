@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">50.822s</div>
+<div class="counter">56.301s</div>
 <p>duration</p>
 </div>
 </td>
@@ -82,7 +82,7 @@
 </thead>
 <tr>
 <td class="success">testEmail()</td>
-<td class="success">50.822s</td>
+<td class="success">56.301s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -90,33 +90,103 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>step 1
-FP
-Test
+<pre>2022-06-28 17:38:13,542 Test worker DEBUG Apache Log4j Core 2.17.1 initializing configuration XmlConfiguration[location=/home/tin/personal/emplanner-qa-control/qa-conrol/build/resources/test/log4j2.xml]
+2022-06-28 17:38:13,564 Test worker DEBUG Installed 1 script engine
+2022-06-28 17:38:14,734 Test worker DEBUG Oracle Nashorn version: 11.0.15, language: ECMAScript, threading: Not Thread Safe, compile: true, names: [nashorn, Nashorn, js, JS, JavaScript, javascript, ECMAScript, ecmascript], factory class: jdk.nashorn.api.scripting.NashornScriptEngineFactory
+2022-06-28 17:38:14,757 Test worker DEBUG Took 0,009087 seconds to load 0 plugins from package org.apache.logging.log4j.test
+2022-06-28 17:38:14,760 Test worker DEBUG PluginManager 'Core' found 127 plugins
+2022-06-28 17:38:14,761 Test worker DEBUG PluginManager 'Level' found 0 plugins
+2022-06-28 17:38:14,776 Test worker DEBUG Building Plugin[name=property, class=org.apache.logging.log4j.core.config.Property].
+2022-06-28 17:38:14,805 Test worker DEBUG PluginManager 'TypeConverter' found 26 plugins
+2022-06-28 17:38:14,829 Test worker DEBUG createProperty(name=&quot;logPath&quot;, value=&quot;/target/log4j2&quot;)
+2022-06-28 17:38:14,831 Test worker DEBUG Building Plugin[name=property, class=org.apache.logging.log4j.core.config.Property].
+2022-06-28 17:38:14,833 Test worker DEBUG createProperty(name=&quot;rollingFileName&quot;, value=&quot;app&quot;)
+2022-06-28 17:38:14,835 Test worker DEBUG Building Plugin[name=properties, class=org.apache.logging.log4j.core.config.PropertiesPlugin].
+2022-06-28 17:38:14,848 Test worker DEBUG configureSubstitutor(={logPath=/target/log4j2, rollingFileName=app}, Configuration(log4j2))
+2022-06-28 17:38:14,850 Test worker DEBUG PluginManager 'Lookup' found 16 plugins
+2022-06-28 17:38:14,854 Test worker DEBUG Building Plugin[name=layout, class=org.apache.logging.log4j.core.layout.PatternLayout].
+2022-06-28 17:38:14,869 Test worker DEBUG PatternLayout$Builder(pattern=&quot;[%d{HH:mm:ss.SSS}] %F %L - %msg%n&quot;, PatternSelector=null, Configuration(log4j2), Replace=null, charset=&quot;null&quot;, alwaysWriteExceptions=&quot;null&quot;, disableAnsi=&quot;null&quot;, noConsoleNoAnsi=&quot;null&quot;, header=&quot;null&quot;, footer=&quot;null&quot;)
+2022-06-28 17:38:14,871 Test worker DEBUG PluginManager 'Converter' found 45 plugins
+2022-06-28 17:38:14,876 Test worker DEBUG Building Plugin[name=appender, class=org.apache.logging.log4j.core.appender.ConsoleAppender].
+2022-06-28 17:38:14,897 Test worker DEBUG ConsoleAppender$Builder(target=&quot;SYSTEM_OUT&quot;, follow=&quot;null&quot;, direct=&quot;null&quot;, bufferedIo=&quot;null&quot;, bufferSize=&quot;null&quot;, immediateFlush=&quot;null&quot;, ignoreExceptions=&quot;null&quot;, PatternLayout([%d{HH:mm:ss.SSS}] %F %L - %msg%n), name=&quot;Console&quot;, Configuration(log4j2), Filter=null, ={})
+2022-06-28 17:38:14,905 Test worker DEBUG Starting OutputStreamManager SYSTEM_OUT.false.false
+2022-06-28 17:38:14,906 Test worker DEBUG Building Plugin[name=layout, class=org.apache.logging.log4j.core.layout.PatternLayout].
+2022-06-28 17:38:14,910 Test worker DEBUG PatternLayout$Builder(pattern=&quot;[%d{HH:mm:ss.SSS}] %F %L %m%n&quot;, PatternSelector=null, Configuration(log4j2), Replace=null, charset=&quot;null&quot;, alwaysWriteExceptions=&quot;null&quot;, disableAnsi=&quot;null&quot;, noConsoleNoAnsi=&quot;null&quot;, header=&quot;null&quot;, footer=&quot;null&quot;)
+2022-06-28 17:38:14,913 Test worker DEBUG Building Plugin[name=TimeBasedTriggeringPolicy, class=org.apache.logging.log4j.core.appender.rolling.TimeBasedTriggeringPolicy].
+2022-06-28 17:38:14,922 Test worker DEBUG TimeBasedTriggeringPolicy$Builder(interval=&quot;1&quot;, modulate=&quot;true&quot;, maxRandomDelay=&quot;null&quot;)
+2022-06-28 17:38:14,924 Test worker DEBUG Building Plugin[name=Policies, class=org.apache.logging.log4j.core.appender.rolling.CompositeTriggeringPolicy].
+2022-06-28 17:38:14,926 Test worker DEBUG createPolicy(={TimeBasedTriggeringPolicy(nextRolloverMillis=0, interval=1, modulate=true)})
+2022-06-28 17:38:14,928 Test worker DEBUG Building Plugin[name=appender, class=org.apache.logging.log4j.core.appender.RollingFileAppender].
+2022-06-28 17:38:14,938 Test worker DEBUG RollingFileAppender$Builder(fileName=&quot;logs/app.log&quot;, filePattern=&quot;logs/%d{yyyy-MM-dd}-%i.log.gz&quot;, append=&quot;null&quot;, locking=&quot;null&quot;, Policies(CompositeTriggeringPolicy(policies=[TimeBasedTriggeringPolicy(nextRolloverMillis=0, interval=1, modulate=true)])), Strategy=null, advertise=&quot;null&quot;, advertiseUri=&quot;null&quot;, createOnDemand=&quot;null&quot;, filePermissions=&quot;null&quot;, fileOwner=&quot;null&quot;, fileGroup=&quot;null&quot;, bufferedIo=&quot;null&quot;, bufferSize=&quot;null&quot;, immediateFlush=&quot;null&quot;, ignoreExceptions=&quot;null&quot;, PatternLayout([%d{HH:mm:ss.SSS}] %F %L %m%n), name=&quot;rollingFile&quot;, Configuration(log4j2), Filter=null, ={})
+2022-06-28 17:38:14,955 Test worker DEBUG Returning file creation time for /home/tin/personal/emplanner-qa-control/qa-conrol/logs/app.log
+2022-06-28 17:38:14,957 Test worker DEBUG Starting RollingFileManager logs/app.log
+2022-06-28 17:38:14,963 Test worker DEBUG PluginManager 'FileConverter' found 2 plugins
+2022-06-28 17:38:15,008 Test worker DEBUG Setting prev file time to 2022-06-28T17:36:00.013+0300
+2022-06-28 17:38:15,013 Test worker DEBUG Initializing triggering policy CompositeTriggeringPolicy(policies=[TimeBasedTriggeringPolicy(nextRolloverMillis=0, interval=1, modulate=true)])
+2022-06-28 17:38:15,019 Test worker DEBUG Initializing triggering policy TimeBasedTriggeringPolicy(nextRolloverMillis=0, interval=1, modulate=true)
+2022-06-28 17:38:15,022 Test worker DEBUG Building Plugin[name=appenders, class=org.apache.logging.log4j.core.config.AppendersPlugin].
+2022-06-28 17:38:15,024 Test worker DEBUG createAppenders(={Console, rollingFile})
+2022-06-28 17:38:15,026 Test worker DEBUG Building Plugin[name=AppenderRef, class=org.apache.logging.log4j.core.config.AppenderRef].
+2022-06-28 17:38:15,030 Test worker DEBUG createAppenderRef(ref=&quot;Console&quot;, level=&quot;null&quot;, Filter=null)
+2022-06-28 17:38:15,032 Test worker DEBUG Building Plugin[name=AppenderRef, class=org.apache.logging.log4j.core.config.AppenderRef].
+2022-06-28 17:38:15,034 Test worker DEBUG createAppenderRef(ref=&quot;rollingFile&quot;, level=&quot;null&quot;, Filter=null)
+2022-06-28 17:38:15,036 Test worker DEBUG Building Plugin[name=root, class=org.apache.logging.log4j.core.config.LoggerConfig$RootLogger].
+2022-06-28 17:38:15,039 Test worker DEBUG createLogger(additivity=&quot;false&quot;, level=&quot;INFO&quot;, includeLocation=&quot;null&quot;, ={Console, rollingFile}, ={}, Configuration(log4j2), Filter=null)
+2022-06-28 17:38:15,046 Test worker DEBUG Building Plugin[name=loggers, class=org.apache.logging.log4j.core.config.LoggersPlugin].
+2022-06-28 17:38:15,049 Test worker DEBUG createLoggers(={root})
+2022-06-28 17:38:15,051 Test worker DEBUG Configuration XmlConfiguration[location=/home/tin/personal/emplanner-qa-control/qa-conrol/build/resources/test/log4j2.xml] initialized
+2022-06-28 17:38:15,052 Test worker DEBUG Starting configuration XmlConfiguration[location=/home/tin/personal/emplanner-qa-control/qa-conrol/build/resources/test/log4j2.xml]
+2022-06-28 17:38:15,054 Test worker DEBUG Started configuration XmlConfiguration[location=/home/tin/personal/emplanner-qa-control/qa-conrol/build/resources/test/log4j2.xml] OK.
+2022-06-28 17:38:15,057 Test worker DEBUG Shutting down OutputStreamManager SYSTEM_OUT.false.false-1
+2022-06-28 17:38:15,059 Test worker DEBUG OutputStream closed
+2022-06-28 17:38:15,060 Test worker DEBUG Shut down OutputStreamManager SYSTEM_OUT.false.false-1, all resources released: true
+2022-06-28 17:38:15,061 Test worker DEBUG Appender DefaultConsole-1 stopped with status true
+2022-06-28 17:38:15,063 Test worker DEBUG Stopped org.apache.logging.log4j.core.config.DefaultConfiguration@26df6e3a OK
+2022-06-28 17:38:15,278 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=55054057
+2022-06-28 17:38:15,290 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=55054057,component=StatusLogger
+2022-06-28 17:38:15,298 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=55054057,component=ContextSelector
+2022-06-28 17:38:15,304 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=55054057,component=Loggers,name=
+2022-06-28 17:38:15,309 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=55054057,component=Appenders,name=Console
+2022-06-28 17:38:15,313 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=55054057,component=Appenders,name=rollingFile
+2022-06-28 17:38:15,319 Test worker DEBUG org.apache.logging.log4j.core.util.SystemClock supports precise timestamps.
+2022-06-28 17:38:15,322 Test worker DEBUG Reconfiguration complete for context[name=55054057] at URI /home/tin/personal/emplanner-qa-control/qa-conrol/build/resources/test/log4j2.xml (org.apache.logging.log4j.core.LoggerContext@425357dd) with optional ClassLoader: null
+2022-06-28 17:38:15,324 Test worker DEBUG Shutdown hook enabled. Registering a new one.
+2022-06-28 17:38:15,329 Test worker DEBUG LoggerContext[name=55054057, org.apache.logging.log4j.core.LoggerContext@425357dd] started OK.
+[17:38:15.415] FirstTest.java 29 - test starts
+[17:38:38.823] FirstTest.java 35 - open emplanner
+[17:38:39.290] FirstTest.java 39 - page loaded
+[17:38:40.233] FirstTest.java 48 - go to test profile
+[17:38:58.012] FirstTest.java 58 - switched to first tab
+[17:38:58.539] FirstTest.java 62 - switched to dashboard
+[17:39:03.845] FirstTest.java 67 - go to profile page
+[17:39:09.029] FirstTest.java 73 - get initials
+[17:39:09.119] FirstTest.java 76 - compare values
+[17:39:11.637] FirstTest.java 78 - exit browser
 </pre>
 </span>
 </div>
 <div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
+<pre>Warning: Nashorn engine is planned to be removed from a future JDK release
+SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-1656251439515	geckodriver	INFO	Listening on 127.0.0.1:54468
-1656251440298	mozrunner::runner	INFO	Running command: &quot;/usr/bin/firefox&quot; &quot;--marionette&quot; &quot;--remote-debugging-port&quot; &quot;56087&quot; &quot;--remote-allow-hosts&quot; &quot;localhost&quot; &quot;--remote-allow-origins&quot; &quot;http://localhost:56087/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;/tmp/rust_mozprofile2fdN6e&quot;
+1656427097248	geckodriver	INFO	Listening on 127.0.0.1:47360
+1656427098030	mozrunner::runner	INFO	Running command: &quot;/usr/bin/firefox&quot; &quot;--marionette&quot; &quot;--remote-debugging-port&quot; &quot;35536&quot; &quot;--remote-allow-hosts&quot; &quot;localhost&quot; &quot;--remote-allow-origins&quot; &quot;http://localhost:35536/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;/tmp/rust_mozprofileFSqfGh&quot;
 ATTENTION: default value of option mesa_glthread overridden by environment.
 ATTENTION: default value of option mesa_glthread overridden by environment.
 ATTENTION: default value of option mesa_glthread overridden by environment.
 ATTENTION: default value of option mesa_glthread overridden by environment.
-1656251444652	Marionette	INFO	Marionette enabled
-WebDriver BiDi listening on ws://localhost:56087
-console.warn: SearchSettings: &quot;get: No settings file exists, new profile?&quot; (new NotFoundError(&quot;Could not open the file at /tmp/rust_mozprofile2fdN6e/search.json.mozlz4&quot;, (void 0)))
+1656427104831	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:35536
+console.warn: SearchSettings: &quot;get: No settings file exists, new profile?&quot; (new NotFoundError(&quot;Could not open the file at /tmp/rust_mozprofileFSqfGh/search.json.mozlz4&quot;, (void 0)))
 Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
-1656251452382	Marionette	INFO	Listening on port 34619
-Read port: 34619
-1656251452494	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-DevTools listening on ws://localhost:56087/devtools/browser/b4823855-e287-4f2d-bc6d-ebd63f880994
-июн. 26, 2022 4:50:52 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+1656427112128	Marionette	INFO	Listening on port 34963
+Read port: 34963
+1656427112243	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:35536/devtools/browser/a1ae2556-c380-4267-90f6-e5911426de62
+июн. 28, 2022 5:38:32 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
 console.warn: LoginRecipes: &quot;getRecipes: falling back to a synchronous message for:&quot; &quot;https://sandy.emplanner.team&quot;
 console.warn: LoginRecipes: &quot;getRecipes: falling back to a synchronous message for:&quot; &quot;https://sandy.emplanner.team&quot;
@@ -127,7 +197,7 @@ console.warn: LoginRecipes: &quot;getRecipes: falling back to a synchronous mess
 JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
 console.warn: LoginRecipes: &quot;getRecipes: falling back to a synchronous message for:&quot; &quot;https://sandy.emplanner.team&quot;
 JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
-1656251486651	Marionette	INFO	Stopped listening on port 34619
+1656427149131	Marionette	INFO	Stopped listening on port 34963
 Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
 console.error: &quot;Error during quit-application-granted: [Exception... \&quot;File error: Not found\&quot;  nsresult: \&quot;0x80520012 (NS_ERROR_FILE_NOT_FOUND)\&quot;  location: \&quot;JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks&lt; :: line 1969\&quot;  data: no]&quot;
 console.warn: LoginRecipes: &quot;getRecipes: falling back to a synchronous message for:&quot; &quot;https://sandy.emplanner.team&quot;
@@ -143,7 +213,7 @@ JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeE
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.4</a> at 26 июн. 2022 г., 16:51:29</p>
+<a href="http://www.gradle.org">Gradle 7.4</a> at 28 июн. 2022 г., 17:39:12</p>
 </div>
 </div>
 </body>
