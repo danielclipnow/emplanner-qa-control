@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -28,8 +28,8 @@ public class FirstTest {
     public void testEmail() throws InterruptedException {
         log.log(Level.INFO, "test starts");
 
-        System.setProperty("webdriver.gecko.driver", ConfProperties.getProperty("geckodriver"));
-        driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(ConfProperties.getProperty("loginpage"));
         log.log(Level.INFO, "open emplanner");
