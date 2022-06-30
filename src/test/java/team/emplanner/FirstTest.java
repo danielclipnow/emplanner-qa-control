@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,18 +28,18 @@ public class FirstTest {
     @Test
     public void testEmail() throws InterruptedException {
         log.log(Level.INFO, "test starts");
+        System.out.println("test starts");
 
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://sandy.emplanner.team/ui");
+        driver.get("https://staging.emplanner.team");
         log.log(Level.INFO, "open emplanner");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
         log.log(Level.INFO, "page loaded");
         WebElement username = driver.findElement(By.id("email"));
-
         username.sendKeys(ConfProperties.getProperty("login"));
 
         WebElement password = driver.findElement(By.id("password"));
@@ -57,11 +58,17 @@ public class FirstTest {
         driver.switchTo().window(tabHandle);
         TimeUnit.SECONDS.sleep(10);
         log.log(Level.INFO, "switched to first tab");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='nav-link']")));
+        try {
+            driver.findElement(By.xpath("//a[@class='badge sc-new']"));
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            System.out.println("widget not loaded within 10 seconds");
+            driver.quit();
+        }
         WebElement dashboard = driver.findElement(By.xpath("//a[@class='nav-link']"));
         dashboard.click();
+        TimeUnit.SECONDS.sleep(5);
         log.log(Level.INFO, "switched to dashboard");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='user-initials']")));
 
         WebElement user = driver.findElement(By.xpath("//span[@class='user-initials']"));
         user.click();

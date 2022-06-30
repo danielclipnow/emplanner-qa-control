@@ -7,6 +7,7 @@ import java.util.Properties;
 public class ConfProperties {
     protected static FileInputStream fileInputStream;
     protected static Properties PROPERTIES;
+
     static {
         try {
             fileInputStream = new FileInputStream("src/test/resources/conf.properties");
@@ -15,6 +16,9 @@ public class ConfProperties {
 
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("you need to create file with login and password");
+            FirstTest.driver.quit();
+
         } finally {
             if (fileInputStream != null)
                 try {

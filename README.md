@@ -16,11 +16,7 @@ Example:
 Then, type from command line:
 `gradle build`
 
-## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
 
-`write-your-code-here
 
 <!-- Optional -->
 <!-- ## License -->
