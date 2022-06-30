@@ -28,16 +28,17 @@ public class FirstTest {
     public void testEmail() throws InterruptedException {
         log.log(Level.INFO, "test starts");
 
-        System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get(ConfProperties.getProperty("loginpage"));
+        driver.get("https://sandy.emplanner.team/ui");
         log.log(Level.INFO, "open emplanner");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
         log.log(Level.INFO, "page loaded");
         WebElement username = driver.findElement(By.id("email"));
+
         username.sendKeys(ConfProperties.getProperty("login"));
 
         WebElement password = driver.findElement(By.id("password"));
@@ -60,12 +61,12 @@ public class FirstTest {
         WebElement dashboard = driver.findElement(By.xpath("//a[@class='nav-link']"));
         dashboard.click();
         log.log(Level.INFO, "switched to dashboard");
-        TimeUnit.SECONDS.sleep(5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='user-initials']")));
 
         WebElement user = driver.findElement(By.xpath("//span[@class='user-initials']"));
         user.click();
         log.log(Level.INFO, "go to profile page");
-        TimeUnit.SECONDS.sleep(5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@formcontrolname='firstName']")));
 
         String firstname = driver.findElement(By.xpath("//input[@formcontrolname='firstName']")).getAttribute("value");
         String lastname = driver.findElement(By.xpath("//input[@formcontrolname='lastName']")).getAttribute("value");
