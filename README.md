@@ -6,9 +6,11 @@
 - Gradle 7.4.2
 
 ## Setup
-For start testing you need to create file and fill it with login and password:
+For start testing please create config file and fill it with login and password:
 
 `cp src/test/resources/conf.properties_bu` 
+
+`src/test/resources/conf.properties`
 
 Example:
 
