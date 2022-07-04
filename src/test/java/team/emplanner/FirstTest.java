@@ -5,11 +5,10 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.html5.LocalStorage;
+import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -48,15 +47,25 @@ public class FirstTest {
         WebElement button = driver.findElement(By.xpath("//button[@class='btn btn-primary btn-block']"));
         button.click();
         log.log(Level.INFO, "go to test profile");
+        TimeUnit.SECONDS.sleep(5);
+        LocalStorage local = ((WebStorage)driver).getLocalStorage();
+        local.setItem("newRelease","1.9");
+        String localItem = local.getItem("newRelease");
+        System.out.println(localItem);
+        TimeUnit.SECONDS.sleep(5);
+
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='btn btn-primary m-0 ml-1 px-3']")));
         Set<String> tabs = driver.getWindowHandles();
         Iterator<String> it = tabs.iterator();
         String tabHandle = it.next();
         WebElement popup = driver.findElement(By.xpath("//button[@class='btn btn-primary m-0 ml-1 px-3']"));
         popup.click();
+
         TimeUnit.SECONDS.sleep(5);
         driver.switchTo().window(tabHandle);
-        TimeUnit.SECONDS.sleep(10);
+        String localItem2 = local.getItem("newRelease");
+        System.out.println(localItem2);
+        TimeUnit.SECONDS.sleep(15);
         log.log(Level.INFO, "switched to first tab");
         try {
             driver.findElement(By.xpath("//a[@class='badge sc-new']"));
@@ -69,7 +78,13 @@ public class FirstTest {
         dashboard.click();
         TimeUnit.SECONDS.sleep(5);
         log.log(Level.INFO, "switched to dashboard");
+        WebElement order = driver.findElement(By.xpath("//button[@class='btn btn-action btn-assign mr-1']"));
+        order.click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ng-option']")));
+        WebElement close = driver.findElement(By.xpath("//button[@class='modal-close']"));
+        close.click();
 
+        TimeUnit.SECONDS.sleep(5);
         WebElement user = driver.findElement(By.xpath("//span[@class='user-initials']"));
         user.click();
         log.log(Level.INFO, "go to profile page");

@@ -6,15 +6,25 @@
 - Gradle 7.4.2
 
 ## Setup
-For start testing you need to create file /src/test/resources/conf.properties with login and password.
+For start testing you need to create file and fill it with login and password:
+
+`cp src/test/resources/conf.properties_bu` 
+
 Example:
 
-`login = gggg@gmail.com`
+`login = your_email@docusketch.com`
 
-`password = kkkkkkk`
+`password = your_password`
 
-Then, type from command line:
+For Linux type from command line:
+
 `gradle build`
+
+For Mac OS type from command line:
+
+`chmod 755 gradlew`
+
+`./gradlew build`
 
 
 
