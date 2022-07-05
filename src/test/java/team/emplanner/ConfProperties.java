@@ -17,7 +17,7 @@ public class ConfProperties {
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("you need to create file with login and password");
-            FirstTest.driver.quit();
+            MainTest.driver.quit();
 
         } finally {
             if (fileInputStream != null)
