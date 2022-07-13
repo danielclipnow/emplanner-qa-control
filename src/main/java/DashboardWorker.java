@@ -44,7 +44,7 @@ public class DashboardWorker{
         baseClass.popup.click();
         TimeUnit.SECONDS.sleep(delayTime);
         driver.switchTo().window(tabHandle);
-        log.log(Level.INFO, "switched to first tab");
+        log.log(Level.INFO, "switched to the first tab");
         String localItem2 = local.getItem("newRelease");
         System.out.println(localItem2);
         TimeUnit.SECONDS.sleep(delayTime);

@@ -4,6 +4,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,7 +14,7 @@ public class Main {
     private static final String OS = System.getProperty("os.name").toLowerCase();
     public static WebDriverWait wait;
     public static WebDriver driver;
-    public static final int delayTime = 5;
+    public static final int delayTime = 6;
     public static final Logger log = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) throws InterruptedException {
@@ -37,7 +38,10 @@ public class Main {
         } else if (OS.startsWith("linux")) {
             System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
         }
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
+        options.addArguments("window-size=1920x1080");
+        driver = new ChromeDriver(options);
         driver.get("https://staging.emplanner.team");
         log.log(Level.INFO, "open emplanner");
 

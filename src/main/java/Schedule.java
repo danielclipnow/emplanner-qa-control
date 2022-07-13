@@ -32,7 +32,7 @@ public class Schedule {
         driver.findElement(By.xpath("//button[@class ='dropdown-toggle pseudo-link']"));
         long time1 = System.currentTimeMillis();
         long diff = (time1 - time)/1000;
-        log.log(Level.INFO, "The schedule loading time is "+diff);
+        log.log(Level.INFO, "The schedule loading time is "+diff+" seconds");
         baseClass.week.click();
         TimeUnit.SECONDS.sleep(delayTime);
     }
