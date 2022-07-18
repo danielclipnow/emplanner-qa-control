@@ -6,10 +6,10 @@ import java.io.IOException;
 
 public class SlackIn {
 
-    public static void sendMessage() throws IOException {
+    public static void sendMessage(String message) throws IOException {
         Slack slack = Slack.getInstance();
-        Payload payload = Payload.builder().text("test completed successfully").build();
-        WebhookResponse response = slack.send("https://hooks.slack.com/services/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", payload);
+        Payload payload = Payload.builder().text(message).build();
+        WebhookResponse response = slack.send(ConfProperties.getProperty("urlslack"), payload);
         System.out.println(response);
     }
 

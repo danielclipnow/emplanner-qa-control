@@ -6,11 +6,11 @@
 - Gradle 7.4.2
 
 ## Setup
-For start testing please create config file and fill it with login and password:
+For starting app please create config file and fill it with login,password and URL slack channel:
 
-`cp src/test/resources/conf.properties_bu` 
+`cp src/main/resources/conf.properties_bu` 
 
-`src/test/resources/conf.properties`
+`src/main/resources/conf.properties`
 
 Example:
 
@@ -20,13 +20,13 @@ Example:
 
 For Linux type from command line:
 
-`gradle build`
+`./gradlew run`
 
 For Mac OS type from command line:
 
 `chmod 755 gradlew`
 
-`./gradlew build`
+`./gradlew run`
 
 
 

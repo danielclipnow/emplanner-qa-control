@@ -64,16 +64,25 @@ public class DashboardWorker{
         baseClass.dashboard.click();
         TimeUnit.SECONDS.sleep(delayTime);
         log.log(Level.INFO, "switched to dashboard");
-        baseClass.order.click();
-        TimeUnit.SECONDS.sleep(delayTime);
         try {
-            driver.findElement(By.xpath("//div[@class='ng-option']"));
+            baseClass.order.click();
+            try {
+                TimeUnit.SECONDS.sleep(delayTime);
+                driver.findElement(By.xpath("//div[@class='ng-dropdown-panel-items scroll-host']"));
+                baseClass.close.click();
+            } catch (NoSuchElementException e) {
+                e.printStackTrace();
+                log.log(Level.INFO,"performers not loaded within " + delayTime + " seconds");
+                TimeUnit.SECONDS.sleep(delayTime);
+                baseClass.close.click();
+            }
+
         } catch (NoSuchElementException e) {
             e.printStackTrace();
-            System.out.println("performers not loaded within" +delayTime+ "seconds");
-            BaseClass.teardown();
+            log.log(Level.INFO, "orders not found");
+
         }
-        baseClass.close.click();
+
         log.log(Level.INFO, "go to profile page");
 
     }

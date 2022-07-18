@@ -1,4 +1,3 @@
 login = your_login@docusketch.com
 password = your_password
-serverName = server name for creating database
-port = port for creating database
+urlslack = URL slack channel

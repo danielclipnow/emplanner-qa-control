@@ -28,7 +28,7 @@ public class Main {
         Schedule schedule = new Schedule(driver);
         schedule.testSchedule();
         teardown();
-        SlackIn.sendMessage();
+        SlackIn.sendMessage("test completed successfully");
 
 
     }
