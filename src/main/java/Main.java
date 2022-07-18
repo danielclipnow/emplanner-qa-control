@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.IOException;
 import java.time.Duration;
 
 public class Main {
@@ -17,8 +18,7 @@ public class Main {
     public static final int delayTime = 6;
     public static final Logger log = LogManager.getLogger(Main.class);
 
-    public static void main(String[] args) throws InterruptedException {
-        MongoDB.mongoDBSetup();
+    public static void main(String[] args) throws InterruptedException, IOException {
         osDriver();
         testEmail();
         DashboardWorker dashboardWorker = new DashboardWorker(driver);
@@ -28,6 +28,8 @@ public class Main {
         Schedule schedule = new Schedule(driver);
         schedule.testSchedule();
         teardown();
+        SlackIn.sendMessage();
+
 
     }
     public static void osDriver() {

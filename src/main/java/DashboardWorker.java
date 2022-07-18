@@ -1,5 +1,4 @@
 import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -48,7 +47,7 @@ public class DashboardWorker{
         String localItem2 = local.getItem("newRelease");
         System.out.println(localItem2);
         TimeUnit.SECONDS.sleep(delayTime);
-
+        long timewidget = System.currentTimeMillis();
 
         try {
             driver.findElement(By.xpath("//a[@class='badge sc-new']"));
@@ -59,11 +58,12 @@ public class DashboardWorker{
             System.out.println("widget not loaded within "+delayTime+ "seconds");
             BaseClass.teardown();
         }
+        long timewidget1 = System.currentTimeMillis();
+        long diff = (timewidget1 - timewidget)/1000;
+        log.log(Level.INFO, "The order overdue loading time is "+diff+" seconds");
         baseClass.dashboard.click();
         TimeUnit.SECONDS.sleep(delayTime);
         log.log(Level.INFO, "switched to dashboard");
-
-
         baseClass.order.click();
         TimeUnit.SECONDS.sleep(delayTime);
         try {
