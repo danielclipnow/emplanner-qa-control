@@ -32,7 +32,8 @@ public class Main {
 
 
     }
-    public static void osDriver() {
+    public static void osDriver() throws MalformedURLException {
+        
         System.out.println("os.name: " + OS);
         log.log(Level.INFO, "os.name: " + OS);
         if (OS.startsWith("mac os")) {
