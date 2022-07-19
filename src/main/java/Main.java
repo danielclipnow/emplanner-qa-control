@@ -43,7 +43,8 @@ public class Main {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         options.addArguments("window-size=1920x1080");
-        driver = new ChromeDriver(options);
+//         driver = new ChromeDriver(options);
+        driver = new RemoteWebDriver(new URL("http://127.0.0.1:40000"), options);
         driver.get("https://staging.emplanner.team");
         log.log(Level.INFO, "open emplanner");
 
