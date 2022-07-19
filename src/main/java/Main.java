@@ -50,7 +50,7 @@ public class Main {
         options.addArguments("window-size=1920x1080");
 //         driver = new ChromeDriver(options);
         try {
-            driver = new RemoteWebDriver(new URL("http://127.0.0.1:40000"), options);
+            driver = new RemoteWebDriver(new URL("http://127.0.0.1:9515"), options);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
