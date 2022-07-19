@@ -32,7 +32,7 @@ public class Main {
 
 
     }
-    public static void osDriver() throws MalformedURLException {
+    public static void osDriver() {
         
         System.out.println("os.name: " + OS);
         log.log(Level.INFO, "os.name: " + OS);
@@ -45,9 +45,14 @@ public class Main {
         options.addArguments("headless");
         options.addArguments("window-size=1920x1080");
 //         driver = new ChromeDriver(options);
-        driver = new RemoteWebDriver(new URL("http://127.0.0.1:40000"), options);
+        try {
+            driver = new RemoteWebDriver(new URL("http://127.0.0.1:40000"), options);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         driver.get("https://staging.emplanner.team");
         log.log(Level.INFO, "open emplanner");
+        
 
     }
     public static void testEmail() {
