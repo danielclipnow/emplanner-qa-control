@@ -29,7 +29,6 @@ For Mac OS type from command line:
 `./gradlew run`
 
 
-
 <!-- Optional -->
 <!-- ## License -->
 <!-- This project is open source and available under the [... License](). -->
