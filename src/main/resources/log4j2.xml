@@ -18,11 +18,16 @@
                 <TimeBasedTriggeringPolicy interval="1" modulate="true" />
             </Policies>
         </RollingFile>
+        <NoSql name="MongoDbAppender">
+            <MongoDb databaseName="logsSelenium" collectionName="logs" server="localhost" port="27017"
+            username="" password=""/>
+        </NoSql>
     </Appenders>
     <Loggers>
         <Root level="DEBUG">
             <AppenderRef ref="Console" />
             <AppenderRef ref="rollingFile" />
+            <AppenderRef ref="MongoDbAppender" />
         </Root>
     </Loggers>
 </Configuration>
