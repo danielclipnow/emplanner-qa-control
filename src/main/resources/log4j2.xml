@@ -19,8 +19,9 @@
             </Policies>
         </RollingFile>
         <NoSql name="MongoDbAppender">
-            <MongoDb databaseName="logsSelenium" collectionName="logs" server="localhost" port="27017"
-            username="" password=""/>
+            <param name="server" value="${sys:serverName}" />
+            <param name="port" value="${sys:port}" />
+            <MongoDb databaseName="qa-emplanner" collectionName="logs" username="" password=""/>
         </NoSql>
     </Appenders>
     <Loggers>
