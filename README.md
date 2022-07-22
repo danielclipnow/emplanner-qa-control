@@ -4,6 +4,7 @@
 ## Technologies Used
 - min version java 11
 - Gradle 7.4.2
+- MongoDB Community
 
 ## Setup
 For starting app please create config file and fill it with login,password and URL slack channel:
@@ -17,6 +18,15 @@ Example:
 `login = your_email@docusketch.com`
 
 `password = your_password`
+
+`urlslack = URL slack channel`
+
+`serverName = host for MongoDB`
+
+`port = port for MongoDB`
+
+
+
 
 For Linux type from command line:
 

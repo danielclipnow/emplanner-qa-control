@@ -4,15 +4,10 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.html5.LocalStorage;
 import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.net.MalformedURLException;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import java.net.URL;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -41,7 +36,7 @@ public class Main {
             Schedule schedule = new Schedule(driver);
             schedule.testSchedule();
             teardown();
-            SlackIn.sendMessage("test completed successfully");
+            SlackIn.sendMessage("https://github.com/danielclipnow/emplanner-qa-control test completed successfully");
         }else if (args[0].startsWith("dash")) {
             DashboardWorker dashboardWorker = new DashboardWorker(driver);
             dashboardWorker.testDashboard();
@@ -68,13 +63,13 @@ public class Main {
         } else if (OS.startsWith("linux")) {
             System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
         }
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
-        options.addArguments("window-size=1920x1080");
-        driver = new ChromeDriver(options);
-        driver.get("https://sandy.emplanner.team");
+        //ChromeOptions options = new ChromeOptions();
+        //options.addArguments("headless");
+        //options.addArguments("window-size=1920x1080");
+        driver = new ChromeDriver();
+        driver.get("https://sandbox-ui.emplanner.team/");
         log.log(Level.INFO, "open emplanner");
-        driver1=new ChromeDriver(options);
+        driver1=new ChromeDriver();
         SandyExample sandy=new SandyExample(driver1);
         sandy.testSandy();
         

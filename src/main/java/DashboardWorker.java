@@ -30,7 +30,7 @@ public class DashboardWorker{
     public void testDashboard() throws InterruptedException{
         BaseClass baseClass = new BaseClass(driver);
         wait = new WebDriverWait(driver, Duration.ofSeconds(delayTime));
-        TimeUnit.SECONDS.sleep(delayTime);
+        TimeUnit.SECONDS.sleep(10);
         long timewidget = System.currentTimeMillis();
 
         try {

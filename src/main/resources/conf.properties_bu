@@ -1,3 +1,5 @@
 login = your_login@docusketch.com
 password = your_password
 urlslack = URL slack channel
+serverName = host for MongoDB
+port = port for MongoDB
