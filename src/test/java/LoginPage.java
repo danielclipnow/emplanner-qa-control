@@ -9,6 +9,11 @@ public class LoginPage {
     private static SelenideElement passwordField = authenticationFormElement.$(By.xpath("./div[2]/div[2]/input"));
     private static SelenideElement authenticationErrorLabel = authenticationFormElement.$(By.xpath("./div[3]/div"));
     private static SelenideElement signInButton = authenticationFormElement.$(By.xpath("./div[4]/button"));
+    private static SelenideElement popUp = $(By.xpath("/html/body/ngb-modal-window/div/div/div[3]/button"));
+
+    public static SelenideElement getPopUp() {
+        return popUp;
+    }
 
     public static SelenideElement typeIntoLoginField (String login){
         loginField.setValue(login);
