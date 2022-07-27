@@ -1,3 +1,6 @@
+package Slack;
+
+import Base.ConfProperties;
 import com.slack.api.Slack;
 import com.slack.api.webhook.Payload;
 import com.slack.api.webhook.WebhookResponse;

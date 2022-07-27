@@ -1,17 +1,16 @@
+package Dashboard;
+
+import Base.BaseClass;
+import Base.Main;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.html5.LocalStorage;
-import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.Iterator;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 
@@ -35,11 +34,11 @@ public class DashboardWorker{
 
         try {
             driver.findElement(By.xpath("//a[@class='badge sc-new']"));
-            driver.findElement(By.xpath("//div[@class='main d-flex align-items-end']"));
+            //driver.findElement(By.xpath("//div[@class='main d-flex align-items-end']"));
 
         } catch (NoSuchElementException e) {
             e.printStackTrace();
-            System.out.println("widget not loaded within "+delayTime+ "seconds");
+            log.log(Level.INFO,"widget not loaded within "+delayTime+ "seconds");
         }
         long timewidget1 = System.currentTimeMillis();
         long diff = (timewidget1 - timewidget)/1000;

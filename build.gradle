@@ -4,7 +4,7 @@ plugins {
 }
 apply plugin : "java"
 ext {
-    javaMainClass = "Main"
+    javaMainClass = "Base.Main"
 }
 
 application {

@@ -1,9 +1,16 @@
+package Base;
+
+import Dashboard.DashboardWorker;
+import Schedule.Schedule;
+import Slack.SlackIn;
+import UserPage.UserProfilePage;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.html5.LocalStorage;
 import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,15 +31,13 @@ public class Main {
     public static final Logger log = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        System.setProperty("serverName",ConfProperties.getProperty("serverName"));
-        System.setProperty("port",ConfProperties.getProperty("port"));
+        System.setProperty("serverName", ConfProperties.getProperty("serverName"));
+        System.setProperty("port", ConfProperties.getProperty("port"));
         osDriver();
         testEmail();
         if (args.length == 0) {
             DashboardWorker dashboardWorker = new DashboardWorker(driver);
             dashboardWorker.testDashboard();
-            UserProfilePage userProfilePage = new UserProfilePage(driver);
-            userProfilePage.testUserPage();
             Schedule schedule = new Schedule(driver);
             schedule.testSchedule();
             teardown();
@@ -43,8 +48,15 @@ public class Main {
             teardown();
             SlackIn.sendMessage("test dashboard completed successfully");
 
-        } else {
+
+        } else if (args[0].startsWith("roles")) {
             UserProfilePage userProfilePage = new UserProfilePage(driver);
+            userProfilePage.testUserPage();
+            teardown();
+            SlackIn.sendMessage("test userpage completed successfully");
+        }else {
+            UserProfilePage userProfilePage = new UserProfilePage(driver);
+
             userProfilePage.testUserPage();
             Schedule schedule = new Schedule(driver);
             schedule.testSchedule();
@@ -63,28 +75,27 @@ public class Main {
         } else if (OS.startsWith("linux")) {
             System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
         }
-        //ChromeOptions options = new ChromeOptions();
-        //options.addArguments("headless");
-        //options.addArguments("window-size=1920x1080");
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
+        options.addArguments("window-size=1920x1080");
+        driver = new ChromeDriver(options);
         driver.get("https://sandbox-ui.emplanner.team/");
+        driver.manage().window().maximize();
         log.log(Level.INFO, "open emplanner");
-        driver1=new ChromeDriver();
-        SandyExample sandy=new SandyExample(driver1);
-        sandy.testSandy();
+        //driver1=new ChromeDriver();
+        //SandyExample sandy=new SandyExample(driver1);
+        //sandy.testSandy();
         
 
     }
     public static void testEmail() throws InterruptedException {
         BaseClass baseClass = new BaseClass(driver);
         wait = new WebDriverWait(driver, Duration.ofSeconds(delayTime));
-        log.log(Level.INFO, "test starts");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
         log.log(Level.INFO, "page loaded");
         baseClass.username.sendKeys(ConfProperties.getProperty("login"));
         baseClass.password.sendKeys(ConfProperties.getProperty("password"));
         baseClass.button.click();
-        log.log(Level.INFO, "go to test profile");
         LocalStorage local = ((WebStorage)driver).getLocalStorage();
         local.setItem("newRelease","1.9");
         String localItem = local.getItem("newRelease");

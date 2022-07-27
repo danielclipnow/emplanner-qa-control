@@ -1,3 +1,7 @@
+package Schedule;
+
+import Base.BaseClass;
+import Base.Main;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -33,6 +37,7 @@ public class Schedule {
         long time1 = System.currentTimeMillis();
         long diff = (time1 - time)/1000;
         log.log(Level.INFO, "The schedule loading time is "+diff+" seconds");
+        TimeUnit.SECONDS.sleep(delayTime);
         baseClass.week.click();
         TimeUnit.SECONDS.sleep(delayTime);
     }
